@@ -9,7 +9,7 @@ def musicLibraryLocation():
 def musicLocation():
 	return '/Users/reilly/Music/iTunes/iTunes Media/Music/'
 
-l = plistlib.readPlist(musicLibraryLocation() + 'iTunes Music Library.xml')
+l = plistlib.readPlist(musicLibraryLocation() + 'iTunes Library.xml')
 tracks = l['Tracks']
 locations = []
 for trackid in tracks:
@@ -25,4 +25,5 @@ for root, dirnames, filenames in os.walk(musicLocation()):
 
 for f in files:
 	if f not in locations:
-		os.remove(f)
+		print f
+		#os.remove(f)
